@@ -5,7 +5,7 @@ import Logo from './Images/Donation Nation.png';
 
 export default function Navbar() {
   return (
-    <div className="nav-bar">
+    <div className="nav-bar" id="home">
       <Link to='Home'><img src={Logo} alt="logo" className="nav-image" /></Link>
       <ul className="nav justify-content-end">
         <li className="nav-item1">
