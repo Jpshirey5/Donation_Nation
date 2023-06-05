@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Footer from "../components/footer";
-import Loading from "../components/loading";
+import Footer from "../Components/footer";
+import Loading from "../Components/loading";
 
 export default function Dashboard() {
   const [isLoading, setIsLoading] = useState(true);
