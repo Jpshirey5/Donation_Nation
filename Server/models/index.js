@@ -1,4 +1,4 @@
-const Charity = require('./Charity');
 const User = require('./User');
+const Charity = require('./Charity');
 
-module.exports = { Charity, User };
+module.exports = { User, Charity };
