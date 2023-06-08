@@ -1,4 +1,4 @@
-const { Charity, User } = require('../models');
+const { Charity} = require('../models');
 
 const resolvers = {
   Query: {
