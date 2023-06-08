@@ -16,13 +16,14 @@ export default function Login() {
               Create your own Charity
             </button></Link>  
           <div className="home-body">
-            <h1>Thanks for joining our Mission</h1>
+            <h2>Thanks for joining our Mission</h2>
             <h4> Welcome to Donation Nation! When you become a member, you gain the incredible opportunity to create a meaningful impact in the lives of others. Joining our community of like-minded individuals allows you to support causes that truly resonate with your values and make a difference for those who are in need. With our user-friendly donation processes, personalized giving records, and valuable insights about charitable organizations, signing up gives you the power to amplify the effect of your contributions and bring about positive change in the world. We're thrilled to have you on board!
             </h4>
-            <Link to='/donate'><button className="btn-donate">
-              Continue to Homepage
+            <Link to='/dashboard'><button className="btn-donate">
+              Donate now
             </button></Link>
           </div>
           <Footer />
         </div>
       )}
+  

@@ -6,7 +6,8 @@ import Login from './pages/login';
 import Navbar from "./Components/navbar";
 import Signup from './pages/signup';
 import Dashboard from './pages/dashboard';
-import Donate from './pages/donate';
+import CreateCharity from './pages/createCharity';
+import SubmitThanks from './pages/submitThanks';
 
 
 export default function App() {
@@ -15,15 +16,15 @@ export default function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Login />} />
           <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/donate" element={<Donate />} />
+          <Route path="/submitThanks" element={<SubmitThanks />} />
+          <Route path="/createCharity" element={<CreateCharity />} />
         </Routes>
       </BrowserRouter>
     </div>
   );
 }
-
