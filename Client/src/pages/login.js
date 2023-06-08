@@ -32,6 +32,10 @@ export default function Login() {
               No account?
               <Link to="/signup">Sign up</Link>
             </p>
+            <p className="signup-link">
+              Not ready to login?
+              <Link to="/home">Continue as Guest</Link>
+            </p>
           </form>
         </div>
       )}
