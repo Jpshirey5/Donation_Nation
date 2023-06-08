@@ -1,27 +1,25 @@
-const { Tech, Matchup } = require('../models');
+const { Charity, User } = require('../models');
 
 const resolvers = {
   Query: {
-    tech: async () => {
-      return Tech.find({});
+    charity: async () => {
+      return Charity.find({});
     },
-    matchups: async (parent, { _id }) => {
-      const params = _id ? { _id } : {};
-      return Matchup.find(params);
-    },
+    
   },
   Mutation: {
-    createMatchup: async (parent, args) => {
-      const matchup = await Matchup.create(args);
-      return matchup;
+    addCharity: async () => {
+      const charity = await Charity.create();
+      return charity;
     },
-    createVote: async (parent, { _id, techNum }) => {
-      const vote = await Matchup.findOneAndUpdate(
+    updateCharity: async () => {
+      const update = await Charity.findOneAndUpdate(
         { _id },
-        { $inc: { [`tech${techNum}_votes`]: 1 } },
-        { new: true }
+        { charityName},
+        { description },
+        {new: true}
       );
-      return vote;
+      return update;
     },
   },
 };

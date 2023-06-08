@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Loading from '../components/loading';
+import Loading from '../Components/loading';
 
 export default function Login() {
   const [isLoading, setIsLoading] = useState(true);
