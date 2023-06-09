@@ -8,6 +8,7 @@ import Signup from './pages/signup';
 import Dashboard from './pages/dashboard';
 import CreateCharity from './pages/createCharity';
 import SubmitThanks from './pages/submitThanks';
+import CharityExpand from './pages/charityExpand';
 
 
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/submitThanks" element={<SubmitThanks />} />
           <Route path="/createCharity" element={<CreateCharity />} />
+          <Route path="/charityExpand" element={<CharityExpand />} />
         </Routes>
       </BrowserRouter>
     </div>

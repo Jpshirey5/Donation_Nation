@@ -12,12 +12,9 @@ export default function Navbar() {
           <Link to="Dashboard" className="nav-link">Dashboard</Link>
         </li>
         <li className="nav-item2">
-          <Link to="CreateUser" className="nav-link">Create User</Link>
-        </li>
-        <li className="nav-item3">
           <Link to="CreateCharity" className="nav-link">Create Charity</Link>
         </li>
-        <li className="nav-item4">
+        <li className="nav-item3">
           <Link to="/login" className="Btn">
             <div className="sign">
               <svg viewBox="0 0 512 512">

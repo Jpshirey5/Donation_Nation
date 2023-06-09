@@ -14,9 +14,6 @@ export default function Footer() {
             <Link to="/dashboard">Dashboard</Link>
           </li>
           <li>
-            <Link to="/user">Create User</Link>
-          </li>
-          <li>
             <Link to="/createCharity">Create Charity</Link>
           </li>
           <li>
