@@ -5,6 +5,9 @@ const resolvers = {
     charity: async () => {
       return Charity.find({});
     },
+    user: async () => {
+      return User.find({})
+    }
     
   },
   Mutation: {
@@ -21,6 +24,11 @@ const resolvers = {
       );
       return update;
     },
+    addUser: async () => {
+      const user = await User.create();
+      return user;
+    },
+    
   },
 };
 
