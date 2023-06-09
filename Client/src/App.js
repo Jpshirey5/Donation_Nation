@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import './App.css';
 import Home from './pages/home';
 import Login from './pages/login';
@@ -9,8 +10,14 @@ import Dashboard from './pages/dashboard';
 import Donate from './pages/donate';
 
 
+const client = new ApolloClient({
+  uri: '/graphql',
+  cache: new InMemoryCache(),
+});
+
 export default function App() {
   return (
+    <ApolloProvider client={client}>
     <div className="App">
       <BrowserRouter>
         <Navbar />
@@ -24,6 +31,7 @@ export default function App() {
         </Routes>
       </BrowserRouter>
     </div>
+    </ApolloProvider>
   );
 }
 

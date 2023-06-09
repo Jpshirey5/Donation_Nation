@@ -19,12 +19,14 @@ const typeDefs = gql`
 
   type Query {
     charity: [Charity]
+    user: [User]
     
   }
 
   type Mutation {
   addCharity(charityName: String, description: String, goal: Int, stripeLink: String): Charity
   updateCharity(charityName: String, description: String): Charity
+  addUser(firstName: String, lastName: String, email: String, password: String): User 
   }`;
 
 module.exports = typeDefs;
