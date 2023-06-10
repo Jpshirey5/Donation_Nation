@@ -53,16 +53,16 @@ export default function Login() {
         </label>  
 
         <label>
-            <input id='descriptionInput' required="" placeholder="" type="text" className="input"></input>
+            <input id="descriptionInput" required="" placeholder="" type="text" className="input"></input>
             <span>Description</span>
         </label> 
             
         <label>
-            <input id='goalInput' required="" placeholder="" type="text" className="input"></input>
+            <input id="goalInput" required="" placeholder="" type="text" className="input"></input>
             <span>Goal</span>
         </label>
         <label>
-            <input id='stripeLinkInput' required="" placeholder="insert hyperlink" type="text" className="input"></input>
+            <input id="stripeLinkInput" required="" placeholder="insert hyperlink" type="text" className="input"></input>
             <span>Stripe</span>
         </label>
         <button type="submit" disabled={loading} className="submit">Create</button>

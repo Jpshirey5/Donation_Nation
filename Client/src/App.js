@@ -18,9 +18,9 @@ const client = new ApolloClient({
 
 export default function App() {
   return (
-    <ApolloProvider client={client}>
     <div className="App">
       <BrowserRouter>
+      <ApolloProvider client={client}>
         <Navbar />
         <Routes>
           <Route path="/" element={<Login />} />
@@ -32,8 +32,8 @@ export default function App() {
           <Route path="/createCharity" element={<CreateCharity />} />
           <Route path="/charityExpand" element={<CharityExpand />} />
         </Routes>
-      </BrowserRouter>
+        </ApolloProvider>
+      </BrowserRouter> 
     </div>
-    </ApolloProvider>
   );
 }
