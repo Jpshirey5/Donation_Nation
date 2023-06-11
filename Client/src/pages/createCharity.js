@@ -2,6 +2,7 @@ import React from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_CHARITY } from '../Utils/mutations';
 
+
 export default function Login() {
         const [addCharity, { loading, error }] = useMutation(ADD_CHARITY);
       
