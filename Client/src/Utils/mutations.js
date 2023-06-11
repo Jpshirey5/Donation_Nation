@@ -3,11 +3,13 @@ import { gql } from '@apollo/client';
 export const ADD_CHARITY = gql`
   mutation addCharity($charityName: String!, $description: String!, $goal: Int!, $stripeLink: String!) {
     addCharity(charityName: $charityName, description: $description, goal: $goal, stripeLink: $stripeLink) {
+      charity {
       _id
       charityName
       description
       goal
       stripelink
+      }
     }
   }
 `;

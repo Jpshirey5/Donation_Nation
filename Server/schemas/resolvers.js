@@ -11,8 +11,8 @@ const resolvers = {
     
   },
   Mutation: {
-    addCharity: async () => {
-      const charity = await Charity.create();
+    addCharity: async (parent, {charityName, description, goal, stripeLink}) => {
+      const charity = await Charity.create({charityName},{description},{goal},{stripeLink});
       return charity;
     },
     updateCharity: async () => {

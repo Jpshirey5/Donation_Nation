@@ -4,7 +4,7 @@ import { ADD_CHARITY } from '../Utils/mutations';
 
 
 export default function Login() {
-        const [addCharity, { loading, error }] = useMutation(ADD_CHARITY);
+        const [addCharity, { loading }] = useMutation(ADD_CHARITY);
       
         const handleSubmit = (event) => {
           event.preventDefault();
@@ -49,21 +49,21 @@ export default function Login() {
         </div>  
                 
         <label>
-            <input id="charityNameInput" required="" placeholder="" type="text" className="input"></input>
+            <input id="charityNameInput" placeholder="" type="text" className="input"></input>
             <span>Charity Name</span>
         </label>  
 
         <label>
-            <input id="descriptionInput" required="" placeholder="" type="text" className="input"></input>
+            <input id="descriptionInput" placeholder="" type="text" className="input"></input>
             <span>Description</span>
         </label> 
             
         <label>
-            <input id="goalInput" required="" placeholder="" type="text" className="input"></input>
+            <input id="goalInput" placeholder="" type="text" className="input"></input>
             <span>Goal</span>
         </label>
         <label>
-            <input id="stripeLinkInput" required="" placeholder="insert hyperlink" type="text" className="input"></input>
+            <input id="stripeLinkInput" placeholder="insert hyperlink" type="text" className="input"></input>
             <span>Stripe</span>
         </label>
         <button type="submit" disabled={loading} className="submit">Create</button>
