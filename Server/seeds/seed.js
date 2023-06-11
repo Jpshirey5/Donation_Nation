@@ -10,6 +10,6 @@ db.once('open', async () => {
   const charities = await Charity.insertMany(charityData);
   const users = await User.insertMany(userData);
 
-  console.log('Technologies seeded!');
+  console.log('seeded!');
   process.exit(0);
 });

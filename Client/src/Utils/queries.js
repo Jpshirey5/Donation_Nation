@@ -7,7 +7,7 @@ export const QUERY_CHARITY = gql`
       charityName
       description
       goal
-      stripelink
+      stripeLink
     }
   }
 `;
