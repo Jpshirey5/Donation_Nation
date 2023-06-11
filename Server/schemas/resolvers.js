@@ -8,27 +8,46 @@ const resolvers = {
     user: async () => {
       return User.find({})
     }
-    
+
   },
   Mutation: {
-    addCharity: async () => {
-      const charity = await Charity.create();
-      return charity;
+    addCharity: async (parent, args) => {
+      const { charityName, description, goal, stripeLink } = args;
+
+      // Logic to add the charity to the database or perform any necessary operations
+
+      const newCharity = {
+        _id: "generated-id", // Generate a unique ID for the new charity
+        charityName,
+        description,
+        goal,
+        stripeLink
+      };
+
+      // Return the newly added charity
+      return newCharity;
     },
     updateCharity: async () => {
       const update = await Charity.findOneAndUpdate(
         { _id },
-        { charityName},
+        { charityName },
         { description },
-        {new: true}
+        { new: true }
       );
       return update;
     },
-    addUser: async () => {
-      const user = await User.create();
-      return user;
+    addUser: async (_, { firstName, lastName, email, password }) => {
+      try {
+        // Create a new user with the provided data
+        const user = await User.create({ firstName, lastName, email, password });
+
+        // Return the created user
+        return user;
+      } catch (error) {
+        // Handle any errors that occur during user creation
+        throw new Error('Error adding user');
+      }
     },
-    
   },
 };
 

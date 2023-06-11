@@ -18,22 +18,22 @@ const client = new ApolloClient({
 
 export default function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-      <ApolloProvider client={client}>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/submitThanks" element={<SubmitThanks />} />
-          <Route path="/createCharity" element={<CreateCharity />} />
-          <Route path="/charityExpand" element={<CharityExpand />} />
-        </Routes>
-        </ApolloProvider>
-      </BrowserRouter> 
-    </div>
+    <ApolloProvider client={client}>
+      <div className="App">
+        <BrowserRouter>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/submitThanks" element={<SubmitThanks />} />
+            <Route path="/createCharity" element={<CreateCharity />} />
+            <Route path="/charityExpand" element={<CharityExpand />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </ApolloProvider>
   );
 }

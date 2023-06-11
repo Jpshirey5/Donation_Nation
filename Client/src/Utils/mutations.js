@@ -7,7 +7,7 @@ export const ADD_CHARITY = gql`
       charityName
       description
       goal
-      stripelink
+      stripeLink
     }
   }
 `;
@@ -22,7 +22,7 @@ export const UPDATE_CHARITY = gql`
   }
 `;
 export const ADD_USER = gql`
-  mutation addUser($firstName: String!, $lastName: String!, $email: String, $password: String) {
+  mutation addUser($firstName: String!, $lastName: String!, $email: String!, $password: String!) {
     addUser(firstName: $firstName, lastName: $lastName, email: $email, password: $password) {
       _id
       firstName
