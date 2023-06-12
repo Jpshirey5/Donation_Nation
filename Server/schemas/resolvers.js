@@ -1,4 +1,6 @@
 const { Charity, User } = require('../models');
+const charityData = require('../seeds/charityData.json')
+const fs = require('fs');
 
 const resolvers = {
   Query: {
@@ -24,6 +26,7 @@ const resolvers = {
         stripeLink
       };
 
+       
       // Return the newly added charity
       return newCharity;
     },
@@ -52,3 +55,14 @@ const resolvers = {
 };
 
 module.exports = resolvers;
+
+
+      //  // Read the existing data from the JSON file
+      //  const existingData = fs.readFileSync('../seeds/charityData.json', 'utf8');
+      //  const charities = JSON.parse(existingData);
+ 
+      //  // Push the new charity to the existing data
+      //  charities.push(newCharity);
+ 
+      //  // Write the updated data back to the JSON file
+      //  fs.writeFileSync('../seeds/charityData.json', JSON.stringify(charities));
