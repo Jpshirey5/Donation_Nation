@@ -1,70 +1,81 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_CHARITY } from '../Utils/mutations';
 
-export default function Login() {
-        const [addCharity, { loading, error }] = useMutation(ADD_CHARITY);
-      
-        const handleSubmit = (event) => {
-          event.preventDefault();
-      
-          // Retrieve input values from the form
-          const charityName = document.getElementById('charityNameInput').value;
-          const description = document.getElementById('descriptionInput').value;
-          const goal = parseInt(document.getElementById('goalInput').value);
-          const stripeLink = document.getElementById('stripeLinkInput').value;
-      
-          // Perform the mutation
-          addCharity({
-            variables: {
-              charityName,
-              description,
-              goal,
-              stripeLink,
-            },
-          })
-            .then((response) => {
-              // Handle the response after the mutation is successful
-              console.log('Charity added:', response.data.addCharity);
-            })
-            .catch((error) => {
-              // Handle any errors that occur during the mutation
-              console.error('Error adding charity:', error);
-            });
-      
-          // Reset the form after submission
-          document.getElementById('charityNameInput').value = '';
-          document.getElementById('descriptionInput').value = '';
-          document.getElementById('goalInput').value = '';
-          document.getElementById('stripeLinkInput').value = '';
-        };
- 
-  return (
-   
-        <form onSubmit={handleSubmit} className="signup-form">
-        <p className="title">Create your Charity </p>
-        <p className="message">Get started to share your project with the world! </p>
-            <div className="flex">
-        </div>  
-                
-        <label>
-            <input id="charityNameInput" required="" placeholder="" type="text" className="input"></input>
-            <span>Charity Name</span>
-        </label>  
+export default function CreateCharity() {
+  console.log('test');
+  const [addCharity, loading,] = useMutation(ADD_CHARITY);
 
-        <label>
-            <input id="descriptionInput" required="" placeholder="" type="text" className="input"></input>
-            <span>Description</span>
-        </label> 
-            
-        <label>
-            <input id="goalInput" required="" placeholder="" type="text" className="input"></input>
-            <span>Goal</span>
-        </label>
-        <label>
-            <input id="stripeLinkInput" required="" placeholder="insert hyperlink" type="text" className="input"></input>
-            <span>Stripe</span>
-        </label>
-        <button type="submit" disabled={loading} className="submit">Create</button>
+  const [formState, setFormState] = useState({
+    charityName: '',
+    description: '',
+    goal: '',
+    stripeLink: '',
+
+  });
+
+  const handleInputChange = (e) => {
+    console.log(formState);
+    console.log("hit")
+    if (e.target.name === 'goal') {
+      setFormState({ ...formState, [e.target.name]: parseInt(e.target.value) })
+    } else {
+      setFormState({ ...formState, [e.target.name]: e.target.value })
+    }
+
+
+  }
+
+
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    console.log(event)
+
+    // Retrieve input values from the form
+    // const charityName = document.getElementById('charityNameInput').value;
+    // const description = document.getElementById('descriptionInput').value;
+    // const goal = parseInt(document.getElementById('goalInput').value);
+    // const stripeLink = document.getElementById('stripeLinkInput').value;
+
+    try {
+
+
+      // Perform the mutation
+      await addCharity({
+        variables: {
+          ...formState
+        },
+      });
+
+      setFormState({
+        charityName: '',
+        description: '',
+        goal: '',
+        stripeLink: '',
+      })
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+
+  return (
+
+    <form onSubmit={handleSubmit} className="signup-form">
+      {console.log("test")}
+      <p className="title">Create your Charity </p>
+      <p className="message">Get started to share your project with the world! </p>
+      <div className="flex">
+      </div>
+      <span>Charity Name</span>
+      <input id="charityNameInput" value={formState.charityName} onChange={handleInputChange} name="charityName" type="text" className="input" />
+      <span>Description</span>
+      <input id="descriptionInput" value={formState.description} onChange={handleInputChange} name="description" type="text" className="input" />
+      <span>Goal</span>
+      <input id="goalInput" value={formState.goal} onChange={handleInputChange} name="goal" type="text" className="input" />
+      <span>Stripe</span>
+      <input id="stripeLinkInput" value={formState.stripeLink} onChange={handleInputChange} name="stripeLink" placeholder="insert hyperlink" type="text" className="input" />
+      <button type="submit" className="submit">Create</button>
     </form>
-      )}
+  )
+}

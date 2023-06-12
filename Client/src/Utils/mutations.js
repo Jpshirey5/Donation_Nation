@@ -12,15 +12,15 @@ export const ADD_CHARITY = gql`
   }
 `;
 /* Future Development */
-export const UPDATE_CHARITY = gql`
-  mutation updateCharity($charityName: String!, $description: String!) {
-    updateCharity(charityName: $charityName, description: $description) {
-      _id
-      charityName
-      description
-    }
-  }
-`;
+// export const UPDATE_CHARITY = gql`
+//   mutation updateCharity($charityName: String!, $description: String!) {
+//     updateCharity(charityName: $charityName, description: $description) {
+//       _id
+//       charityName
+//       description
+//     }
+//   }
+// `;
 export const ADD_USER = gql`
   mutation addUser($firstName: String!, $lastName: String!, $email: String, $password: String) {
     addUser(firstName: $firstName, lastName: $lastName, email: $email, password: $password) {

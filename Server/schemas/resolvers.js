@@ -11,8 +11,8 @@ const resolvers = {
     
   },
   Mutation: {
-    addCharity: async () => {
-      const charity = await Charity.create();
+    addCharity: async (parent, args) => {
+      const charity = await Charity.create(args);
       return charity;
     },
     updateCharity: async () => {
@@ -24,8 +24,8 @@ const resolvers = {
       );
       return update;
     },
-    addUser: async () => {
-      const user = await User.create();
+    addUser: async (parent, args) => {
+      const user = await User.create(args);
       return user;
     },
     
