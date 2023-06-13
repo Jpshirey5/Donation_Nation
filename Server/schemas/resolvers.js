@@ -25,7 +25,17 @@ const resolvers = {
         goal,
         stripeLink
       };
+      const user = await Charity.create({ charityName, description, goal, stripeLink });
 
+             // Read the existing data from the JSON file
+       const existingData = fs.readFileSync(__dirname + '/../seeds/charityData.json', 'utf8');
+       const charities = JSON.parse(existingData);
+ 
+       // Push the new charity to the existing data
+       charities.push(newCharity);
+ 
+       // Write the updated data back to the JSON file
+       fs.writeFileSync(__dirname + '/../seeds/charityData.json', JSON.stringify(charities));
        
       // Return the newly added charity
       return newCharity;
